@@ -44,6 +44,10 @@ hook Sload uint64 val assetMappings[KEY address asset].liquidationBonus STORAGE 
     require assetLiqBonus[asset] == val;
 }
 
-hook Sload bool val assetMappings[KEY address asset].(offset 78) STORAGE {
+hook Sload bool val assetMappings[KEY address asset].(offset 66) STORAGE {
+    require assetExists[asset] == val;
+}
+
+hook Sstore assetMappings[KEY address asset].(offset 66) bool val (bool old) STORAGE {
     require assetExists[asset] == val;
 }
