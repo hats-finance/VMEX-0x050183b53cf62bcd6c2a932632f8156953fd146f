@@ -48,6 +48,6 @@ hook Sload bool val assetMappings[KEY address asset].(offset 66) STORAGE {
     require assetExists[asset] == val;
 }
 
-hook Sstore assetMappings[KEY address asset].(offset 66) bool val (bool old) STORAGE {
+hook Sstore assetMappings[KEY address asset].(offset 66) bool val (bool old_val) STORAGE {
     require assetExists[asset] == val;
 }
