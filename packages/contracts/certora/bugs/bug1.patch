@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/5/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -57,7 +57,8 @@
+      * @param asset The address of the asset you want to disallow
+      **/
+     function validateAssetAllowed(address asset) internal view {
+-        require(!assetMappings[asset].borrowingEnabled, Errors.AM_UNABLE_TO_DISALLOW_ASSET);
++        /// RequireMutation(`!assetMappings[asset].borrowingEnabled` |==> `false`) of: `require(!assetMappings[asset].borrowingEnabled, Errors.AM_UNABLE_TO_DISALLOW_ASSET);`
++        require(false, Errors.AM_UNABLE_TO_DISALLOW_ASSET);
+         require(assetMappings[asset].baseLTV == 0, Errors.AM_UNABLE_TO_DISALLOW_ASSET);
+         //check no borrows open
+         uint64 totalTranches = ILendingPoolConfigurator(
+\ No newline at end of file

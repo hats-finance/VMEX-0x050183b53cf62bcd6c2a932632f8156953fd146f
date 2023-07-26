@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/230/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -465,7 +465,8 @@
+         )
+     {
+ 
+-        require(assetMappings[asset].isAllowed, Errors.AM_ASSET_NOT_ALLOWED); //not existing
++        /// RequireMutation(`assetMappings[asset].isAllowed` |==> `false`) of: `require(assetMappings[asset].isAllowed, Errors.AM_ASSET_NOT_ALLOWED); //not existing`
++        require(false, Errors.AM_ASSET_NOT_ALLOWED); //not existing
+         return (
+             assetMappings[asset].baseLTV,
+             assetMappings[asset].liquidationThreshold,
+\ No newline at end of file

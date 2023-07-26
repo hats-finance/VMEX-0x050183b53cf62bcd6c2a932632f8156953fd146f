@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/155/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -295,7 +295,8 @@
+      **/
+     function setAssetAllowed(address asset, bool isAllowed) external onlyGlobalAdmin{
+         require(isAssetInMappings(asset), Errors.AM_ASSET_DOESNT_EXIST);
+-        if (!isAllowed) {
++        /// IfStatementMutation(`!isAllowed` |==> `true`) of: `if (!isAllowed) {`
++        if (true) {
+             validateAssetAllowed(asset);
+         }
+         assetMappings[asset].isAllowed = isAllowed;
+\ No newline at end of file

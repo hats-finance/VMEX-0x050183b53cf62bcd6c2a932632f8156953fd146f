@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/225/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -445,7 +445,8 @@
+     }
+ 
+     function getBeethovenMetadata(address asset) external view override returns (DataTypes.BeethovenMetadata memory) {
+-        require(beethovenMetadata[asset]._exists, Errors.AM_ASSET_DOESNT_EXIST);
++        /// DeleteExpressionMutation(`require(beethovenMetadata[asset]._exists, Errors.AM_ASSET_DOESNT_EXIST)` |==> `assert(true)`) of: `require(beethovenMetadata[asset]._exists, Errors.AM_ASSET_DOESNT_EXIST);`
++        assert(true);
+         return beethovenMetadata[asset];
+     }
+ 
+\ No newline at end of file

@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/115/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -200,7 +200,8 @@
+     function addAssetMapping(
+         AddAssetMappingInput[] memory input
+     ) external onlyGlobalAdmin {
+-        for(uint256 i = 0; i<input.length; i++) {
++        /// UnaryOperatorMutation(`++` |==> `--`) of: `for(uint256 i = 0; i<input.length; i++) {`
++        for(uint256 i = 0; i<input.length; i--) {
+             AddAssetMappingInput memory inputAsset = input[i];
+             address currentAssetAddress = inputAsset.asset;
+             validateAddAssetMapping(inputAsset);
+\ No newline at end of file

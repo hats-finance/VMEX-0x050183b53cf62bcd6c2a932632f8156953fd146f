@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/25/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -119,7 +119,8 @@
+         address asset,
+         uint256 reserveFactor
+     ) public onlyGlobalAdmin {
+-        require(isAssetInMappings(asset), Errors.AM_ASSET_DOESNT_EXIST);
++        /// RequireMutation(`isAssetInMappings(asset)` |==> `false`) of: `require(isAssetInMappings(asset), Errors.AM_ASSET_DOESNT_EXIST);`
++        require(false, Errors.AM_ASSET_DOESNT_EXIST);
+         uint256 thisReserveFactor = reserveFactor.convertToPercent();
+         validateVMEXReserveFactor(thisReserveFactor);
+ 
+\ No newline at end of file

@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/170/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -342,7 +342,8 @@
+         uint256 i = 0;
+ 
+         while(tmp != address(0)) {
+-            if(assetMappings[tmp].isAllowed) {
++            /// IfStatementMutation(`assetMappings[tmp].isAllowed` |==> `false`) of: `if(assetMappings[tmp].isAllowed) {`
++            if(false) {
+                 tokens[i] = tmp;
+                 i++;
+             }
+\ No newline at end of file

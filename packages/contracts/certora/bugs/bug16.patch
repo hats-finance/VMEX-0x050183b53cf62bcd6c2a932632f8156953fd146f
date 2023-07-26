@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/80/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -217,7 +217,8 @@
+             DataTypes.AssetData storage currentAssetMapping = assetMappings[currentAssetAddress];
+ 
+             currentAssetMapping.supplyCap = inputAsset.supplyCap;
+-            currentAssetMapping.borrowCap = inputAsset.borrowCap;
++            /// AssignmentMutation(`inputAsset.borrowCap` |==> `1`) of: `currentAssetMapping.borrowCap = inputAsset.borrowCap;`
++            currentAssetMapping.borrowCap = 1;
+             currentAssetMapping.baseLTV = inputAsset.baseLTV;
+             currentAssetMapping.liquidationThreshold = inputAsset.liquidationThreshold;
+             currentAssetMapping.liquidationBonus = inputAsset.liquidationBonus;
+\ No newline at end of file

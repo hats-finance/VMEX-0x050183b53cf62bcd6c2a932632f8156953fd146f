@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/20/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -95,7 +95,8 @@
+         public
+         initializer
+     {
+-        addressesProvider = ILendingPoolAddressesProvider(provider);
++        /// DeleteExpressionMutation(`addressesProvider = ILendingPoolAddressesProvider(provider)` |==> `assert(true)`) of: `addressesProvider = ILendingPoolAddressesProvider(provider);`
++        assert(true);
+         approvedAssetsHead = address(0);
+         approvedAssetsTail = address(0);
+     }
+\ No newline at end of file

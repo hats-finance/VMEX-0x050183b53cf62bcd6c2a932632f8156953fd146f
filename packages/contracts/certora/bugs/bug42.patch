@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/210/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -417,7 +417,8 @@
+      * @dev Sets asset type for an asset for oracle choice. May be used if a chainlink aggregator becomes available for a asset
+      **/
+     function setAssetType(address asset, DataTypes.ReserveAssetType assetType) external override onlyGlobalAdmin {
+-        assetMappings[asset].assetType = uint8(assetType);
++        /// AssignmentMutation(`uint8(assetType)` |==> `1`) of: `assetMappings[asset].assetType = uint8(assetType);`
++        assetMappings[asset].assetType = 1;
+     }
+ 
+     /**
+\ No newline at end of file

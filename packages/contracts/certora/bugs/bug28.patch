@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/140/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -279,7 +279,8 @@
+ 
+         assetMappings[asset].baseLTV = baseLTV;
+         assetMappings[asset].liquidationThreshold = (liquidationThreshold);
+-        assetMappings[asset].liquidationBonus = (liquidationBonus);
++        /// AssignmentMutation(`(liquidationBonus)` |==> `1`) of: `assetMappings[asset].liquidationBonus = (liquidationBonus);`
++        assetMappings[asset].liquidationBonus = 1;
+         assetMappings[asset].supplyCap = (supplyCap);
+         assetMappings[asset].borrowCap = (borrowCap);
+         assetMappings[asset].borrowFactor = (borrowFactor);
+\ No newline at end of file
