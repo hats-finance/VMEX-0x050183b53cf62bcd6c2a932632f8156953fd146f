@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/130/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -274,7 +274,8 @@
+         baseLTV = uint256(baseLTV).convertToPercent().toUint64();
+         liquidationThreshold = uint256(liquidationThreshold).convertToPercent().toUint64();
+         liquidationBonus = uint256(liquidationBonus).convertToPercent().toUint64();
+-        borrowFactor = uint256(borrowFactor).convertToPercent().toUint64();
++        /// AssignmentMutation(`uint256(borrowFactor).convertToPercent().toUint64()` |==> `1`) of: `borrowFactor = uint256(borrowFactor).convertToPercent().toUint64();`
++        borrowFactor = 1;
+         validateCollateralParams(baseLTV, liquidationThreshold, liquidationBonus, borrowFactor);
+ 
+         assetMappings[asset].baseLTV = baseLTV;
+\ No newline at end of file

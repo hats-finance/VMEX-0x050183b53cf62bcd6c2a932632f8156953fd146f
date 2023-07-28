@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/40/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -159,7 +159,8 @@
+     ) internal pure {
+         require(baseLTV <= liquidationThreshold, Errors.AM_INVALID_CONFIGURATION);
+ 
+-        if (liquidationThreshold != 0) {
++        /// IfStatementMutation(`liquidationThreshold != 0` |==> `true`) of: `if (liquidationThreshold != 0) {`
++        if (true) {
+             //liquidation bonus must be bigger than 100.00%, otherwise the liquidator would receive less
+             //collateral than needed to cover the debt
+             require(
+\ No newline at end of file

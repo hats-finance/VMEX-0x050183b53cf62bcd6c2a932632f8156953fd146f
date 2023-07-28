@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/100/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -224,7 +224,8 @@
+             currentAssetMapping.borrowFactor = inputAsset.borrowFactor;
+             currentAssetMapping.VMEXReserveFactor = inputAsset.VMEXReserveFactor;
+             currentAssetMapping.borrowingEnabled = inputAsset.borrowingEnabled;
+-            currentAssetMapping.assetType = inputAsset.assetType;
++            /// AssignmentMutation(`inputAsset.assetType` |==> `0`) of: `currentAssetMapping.assetType = inputAsset.assetType;`
++            currentAssetMapping.assetType = 0;
+             currentAssetMapping.isAllowed = true;
+             currentAssetMapping.exists = true;
+ 
+\ No newline at end of file

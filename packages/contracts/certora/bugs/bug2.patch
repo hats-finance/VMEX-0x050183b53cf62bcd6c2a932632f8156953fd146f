@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/10/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -68,7 +68,8 @@
+         for (uint64 tranche = 0; tranche < totalTranches; tranche++) {
+             DataTypes.ReserveData memory reserve = lendingPool.getReserveData(asset, tranche);
+             //no outstanding borrows allowed
+-            if (reserve.variableDebtTokenAddress != address(0)) {
++            /// IfStatementMutation(`reserve.variableDebtTokenAddress != address(0)` |==> `false`) of: `if (reserve.variableDebtTokenAddress != address(0)) {`
++            if (false) {
+                 // if the reserve exists in the tranche
+                 require(
+                     IERC20Detailed(reserve.variableDebtTokenAddress).totalSupply() == 0,
+\ No newline at end of file

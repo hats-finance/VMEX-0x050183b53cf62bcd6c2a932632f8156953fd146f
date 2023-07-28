@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/15/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -79,7 +79,8 @@
+             if (reserve.aTokenAddress != address(0)) {
+                 // if the reserve exists in the tranche
+                 require(
+-                    IERC20Detailed(reserve.aTokenAddress).totalSupply() == 0,
++                    /// RequireMutation(`IERC20Detailed(reserve.aTokenAddress).totalSupply() == 0` |==> `true`) of: `IERC20Detailed(reserve.aTokenAddress).totalSupply() == 0,`
++                    true,
+                     Errors.AM_UNABLE_TO_DISALLOW_ASSET
+                 );
+             }
+\ No newline at end of file

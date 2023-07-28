@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/30/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -137,7 +137,8 @@
+         address asset,
+         bool borrowingEnabled
+     ) external onlyGlobalAdmin {
+-        require(isAssetInMappings(asset), Errors.AM_ASSET_DOESNT_EXIST);
++        /// DeleteExpressionMutation(`require(isAssetInMappings(asset), Errors.AM_ASSET_DOESNT_EXIST)` |==> `assert(true)`) of: `require(isAssetInMappings(asset), Errors.AM_ASSET_DOESNT_EXIST);`
++        assert(true);
+         assetMappings[asset].borrowingEnabled = borrowingEnabled;
+ 
+         emit BorrowingEnabledChanged(asset, borrowingEnabled);
+\ No newline at end of file

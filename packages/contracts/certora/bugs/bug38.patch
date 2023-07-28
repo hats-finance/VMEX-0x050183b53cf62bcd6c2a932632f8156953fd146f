@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/190/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -374,7 +374,8 @@
+ 
+     
+     function getAssetType(address asset) view external returns(DataTypes.ReserveAssetType){
+-        require(assetMappings[asset].isAllowed, Errors.AM_ASSET_NOT_ALLOWED); //not existing
++        /// DeleteExpressionMutation(`require(assetMappings[asset].isAllowed, Errors.AM_ASSET_NOT_ALLOWED)` |==> `assert(true)`) of: `require(assetMappings[asset].isAllowed, Errors.AM_ASSET_NOT_ALLOWED); //not existing`
++        assert(true); //not existing
+         return DataTypes.ReserveAssetType(assetMappings[asset].assetType);
+     }
+ 
+\ No newline at end of file

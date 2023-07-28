@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/205/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -403,7 +403,8 @@
+     function addInterestRateStrategyAddress(address asset, address strategy) external onlyGlobalAdmin {
+         require(Address.isContract(strategy), Errors.AM_INTEREST_STRATEGY_NOT_CONTRACT);
+         while(interestRateStrategyAddress[asset][numInterestRateStrategyAddress[asset]]!=address(0)){
+-            numInterestRateStrategyAddress[asset]++;
++            /// DeleteExpressionMutation(`numInterestRateStrategyAddress[asset]++` |==> `assert(true)`) of: `numInterestRateStrategyAddress[asset]++;`
++            assert(true);
+         }
+         interestRateStrategyAddress[asset][numInterestRateStrategyAddress[asset]] = strategy;
+         emit AddedInterestRateStrategyAddress(
+\ No newline at end of file

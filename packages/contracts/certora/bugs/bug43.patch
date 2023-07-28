@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/215/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -425,7 +425,8 @@
+      **/
+     function setCurveMetadata(address[] calldata assets, DataTypes.CurveMetadata[] calldata vars) external override onlyGlobalAdmin {
+         require(assets.length == vars.length, Errors.ARRAY_LENGTH_MISMATCH);
+-        for(uint i = 0;i<assets.length;i++){
++        /// SwapArgumentsOperatorMutation(`i<assets.length` |==> `assets.length < i`) of: `for(uint i = 0;i<assets.length;i++){`
++        for(uint i = 0;assets.length < i;i++){
+             curveMetadata[assets[i]] = vars[i];
+         }
+     }
+\ No newline at end of file

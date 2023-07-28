@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/120/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -271,7 +271,8 @@
+         uint64 borrowFactor //2 words, 24 bytes --> 3 words total
+     ) external onlyGlobalAdmin {
+         require(isAssetInMappings(asset), Errors.AM_ASSET_DOESNT_EXIST);
+-        baseLTV = uint256(baseLTV).convertToPercent().toUint64();
++        /// AssignmentMutation(`uint256(baseLTV).convertToPercent().toUint64()` |==> `0`) of: `baseLTV = uint256(baseLTV).convertToPercent().toUint64();`
++        baseLTV = 0;
+         liquidationThreshold = uint256(liquidationThreshold).convertToPercent().toUint64();
+         liquidationBonus = uint256(liquidationBonus).convertToPercent().toUint64();
+         borrowFactor = uint256(borrowFactor).convertToPercent().toUint64();
+\ No newline at end of file

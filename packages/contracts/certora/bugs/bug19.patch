@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/95/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -222,7 +222,8 @@
+             currentAssetMapping.liquidationThreshold = inputAsset.liquidationThreshold;
+             currentAssetMapping.liquidationBonus = inputAsset.liquidationBonus;
+             currentAssetMapping.borrowFactor = inputAsset.borrowFactor;
+-            currentAssetMapping.VMEXReserveFactor = inputAsset.VMEXReserveFactor;
++            /// AssignmentMutation(`inputAsset.VMEXReserveFactor` |==> `1`) of: `currentAssetMapping.VMEXReserveFactor = inputAsset.VMEXReserveFactor;`
++            currentAssetMapping.VMEXReserveFactor = 1;
+             currentAssetMapping.borrowingEnabled = inputAsset.borrowingEnabled;
+             currentAssetMapping.assetType = inputAsset.assetType;
+             currentAssetMapping.isAllowed = true;
+\ No newline at end of file

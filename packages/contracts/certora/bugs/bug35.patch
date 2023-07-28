@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/175/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -352,7 +352,8 @@
+     }
+ 
+     function getAssetMapping(address asset) view external returns(DataTypes.AssetData memory){
+-        require(assetMappings[asset].isAllowed, Errors.AM_ASSET_NOT_ALLOWED);
++        /// DeleteExpressionMutation(`require(assetMappings[asset].isAllowed, Errors.AM_ASSET_NOT_ALLOWED)` |==> `assert(true)`) of: `require(assetMappings[asset].isAllowed, Errors.AM_ASSET_NOT_ALLOWED);`
++        assert(true);
+         return assetMappings[asset];
+     }
+ 
+\ No newline at end of file

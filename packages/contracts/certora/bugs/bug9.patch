@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/45/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -177,7 +177,8 @@
+             );
+         }
+         require(
+-            uint256(borrowFactor) >= PercentageMath.PERCENTAGE_FACTOR,
++            /// RequireMutation(`uint256(borrowFactor) >= PercentageMath.PERCENTAGE_FACTOR` |==> `true`) of: `uint256(borrowFactor) >= PercentageMath.PERCENTAGE_FACTOR,`
++            true,
+             Errors.AM_INVALID_CONFIGURATION
+         );
+     }
+\ No newline at end of file

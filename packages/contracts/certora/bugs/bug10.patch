@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/50/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -188,7 +188,8 @@
+      **/
+     function validateAddAssetMapping(AddAssetMappingInput memory inputAsset) internal view {
+         address currentAssetAddress = inputAsset.asset;
+-        require(!isAssetInMappings(currentAssetAddress),Errors.AM_ASSET_ALREADY_IN_MAPPINGS);
++        /// RequireMutation(`!isAssetInMappings(currentAssetAddress)` |==> `false`) of: `require(!isAssetInMappings(currentAssetAddress),Errors.AM_ASSET_ALREADY_IN_MAPPINGS);`
++        require(false,Errors.AM_ASSET_ALREADY_IN_MAPPINGS);
+         require(Address.isContract(currentAssetAddress),Errors.AM_ASSET_NOT_CONTRACT);
+         require(Address.isContract(inputAsset.defaultInterestRateStrategyAddress), Errors.AM_INTEREST_STRATEGY_NOT_CONTRACT);
+     }
+\ No newline at end of file

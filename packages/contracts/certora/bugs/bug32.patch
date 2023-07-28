@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/160/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -298,7 +298,8 @@
+         if (!isAllowed) {
+             validateAssetAllowed(asset);
+         }
+-        assetMappings[asset].isAllowed = isAllowed;
++        /// AssignmentMutation(`isAllowed` |==> `false`) of: `assetMappings[asset].isAllowed = isAllowed;`
++        assetMappings[asset].isAllowed = false;
+     }
+ 
+     /**
+\ No newline at end of file

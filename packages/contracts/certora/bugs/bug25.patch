@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/125/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -273,7 +273,8 @@
+         require(isAssetInMappings(asset), Errors.AM_ASSET_DOESNT_EXIST);
+         baseLTV = uint256(baseLTV).convertToPercent().toUint64();
+         liquidationThreshold = uint256(liquidationThreshold).convertToPercent().toUint64();
+-        liquidationBonus = uint256(liquidationBonus).convertToPercent().toUint64();
++        /// DeleteExpressionMutation(`liquidationBonus = uint256(liquidationBonus).convertToPercent().toUint64()` |==> `assert(true)`) of: `liquidationBonus = uint256(liquidationBonus).convertToPercent().toUint64();`
++        assert(true);
+         borrowFactor = uint256(borrowFactor).convertToPercent().toUint64();
+         validateCollateralParams(baseLTV, liquidationThreshold, liquidationBonus, borrowFactor);
+ 
+\ No newline at end of file

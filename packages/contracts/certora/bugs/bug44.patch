@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/220/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -438,7 +438,8 @@
+      * @dev Sets beethoven metadata for an array of assets.
+      **/
+     function setBeethovenMetadata(address[] calldata assets, DataTypes.BeethovenMetadata[] calldata vars) external onlyGlobalAdmin {
+-        require(assets.length == vars.length, Errors.ARRAY_LENGTH_MISMATCH);
++        /// RequireMutation(`assets.length == vars.length` |==> `false`) of: `require(assets.length == vars.length, Errors.ARRAY_LENGTH_MISMATCH);`
++        require(false, Errors.ARRAY_LENGTH_MISMATCH);
+         for(uint i = 0;i<assets.length;i++){
+             beethovenMetadata[assets[i]] = vars[i];
+         }
+\ No newline at end of file

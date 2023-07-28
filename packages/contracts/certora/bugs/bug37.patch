@@ -1,0 +1,13 @@
+--- gambit_out/AssetMappings.sol	2023-07-25 13:23:33
++++ gambit_out/mutants/185/vmex/packages/contracts/contracts/protocol/lendingpool/AssetMappings.sol	2023-07-17 01:51:50
+@@ -367,7 +367,8 @@
+     }
+ 
+     function getInterestRateStrategyAddress(address asset, uint8 choice) view external returns(address){
+-        require(assetMappings[asset].isAllowed, Errors.AM_ASSET_NOT_ALLOWED);
++        /// RequireMutation(`assetMappings[asset].isAllowed` |==> `true`) of: `require(assetMappings[asset].isAllowed, Errors.AM_ASSET_NOT_ALLOWED);`
++        require(true, Errors.AM_ASSET_NOT_ALLOWED);
+         require(interestRateStrategyAddress[asset][choice]!=address(0), Errors.AM_NO_INTEREST_STRATEGY);
+         return interestRateStrategyAddress[asset][choice];
+     }
+\ No newline at end of file
